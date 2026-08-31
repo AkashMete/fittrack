@@ -1,0 +1,40 @@
+name: Feature
+description: A feature from PRODUCT_SPEC.md
+title: "[FEATURE] "
+labels: ["feature"]
+body:
+  - type: input
+    id: spec-ref
+    attributes:
+      label: Spec reference
+      description: Feature number from docs/PRODUCT_SPEC.md (e.g. 5.1 Log Meals)
+      placeholder: "5.1 Log Meals — Daily Diet Tracker"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What should this feature do?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - [ ] User can ...
+        - [ ] API returns ...
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Phase
+      options:
+        - phase-1
+        - phase-2
+        - phase-3
+        - phase-4
+        - phase-5
+        - phase-6
+    validations:
+      required: true

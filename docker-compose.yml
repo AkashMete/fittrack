@@ -1,0 +1,84 @@
+# Local development environment
+# Run: docker-compose up -d
+# Stop: docker-compose down
+# View logs: docker-compose logs -f
+
+version: '3.9'
+
+services:
+
+  # ── MongoDB ───────────────────────────────────────────────────────────────
+  mongodb:
+    image: mongo:7
+    container_name: fittrack-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: fittrack_dev
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Redis (rate limiting + future caching) ────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: fittrack-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # ── Flask Backend ─────────────────────────────────────────────────────────
+  # TODO Phase 1: Uncomment after scaffolding the backend folder
+  # backend:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   container_name: fittrack-api
+  #   restart: unless-stopped
+  #   ports:
+  #     - "5000:5000"
+  #   volumes:
+  #     - ./backend:/app        # Mount source for hot reload
+  #   environment:
+  #     FLASK_ENV: development
+  #     MONGODB_URI: mongodb://mongodb:27017/fittrack_dev
+  #     REDIS_URL: redis://redis:6379/0
+  #     JWT_SECRET_KEY: dev-secret-change-in-production   # NEVER use this value in production
+  #     CLOUDINARY_URL: cloudinary://...
+  #   depends_on:
+  #     mongodb:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+
+  # ── Angular Frontend ──────────────────────────────────────────────────────
+  # NOTE: Recommended to run Angular dev server directly (npm start) for faster HMR
+  # Only containerize if you specifically want full Docker isolation
+  # TODO Phase 1: Uncomment if you want Angular in Docker
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile.dev
+  #   container_name: fittrack-frontend
+  #   ports:
+  #     - "4200:4200"
+  #   volumes:
+  #     - ./frontend/src:/app/src   # Hot reload
+  #   environment:
+  #     - API_URL=http://backend:5000
+  #   depends_on:
+  #     - backend
+
+volumes:
+  mongodb_data:
+    name: fittrack_mongodb_data
