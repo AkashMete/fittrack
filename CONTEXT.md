@@ -9,11 +9,11 @@
 
 | Item | Status |
 |------|--------|
-| Current Phase | **Phase 0 — Setup & Planning** |
-| Last Updated | 2026-08-24 |
-| Backend | Not started |
-| Frontend | Not started |
-| Database | Not created |
+| Current Phase | **Phase 2 — Food Library & Diet Tracking (partially complete)** |
+| Last Updated | 2026-09-01 |
+| Backend | Phase 1 + 2 endpoints built, 21 tests passing |
+| Frontend | Auth, shell, dashboard, food library, daily tracker, profile built; builds OK |
+| Database | Not created (Docker not installed; tests use mongomock) |
 | GitHub Repo | Not created |
 | Deployed | No |
 
@@ -36,7 +36,11 @@
 
 ## Completed Items
 
-*(Nothing yet — update as you complete each checkbox above)*
+- `develop` branch, .gitignore, .github templates + CI workflow, docs committed
+- Backend + frontend scaffolded; see `notes/` for what was built and known gaps
+
+**Still to do (needs you):** install Docker Desktop and verify `docker compose up -d`; create GitHub Project/Milestones/Issues; accounts (Atlas, Vercel, Render, Cloudinary); push `develop`.
+**Phase 2 remaining:** diet plan builder UI, monthly report UI + charts, image upload, session restore on reload.
 
 ---
 

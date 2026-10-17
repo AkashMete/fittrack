@@ -33,7 +33,6 @@ def _recompute_log_totals(log: DietLog) -> None:
     log.total_protein_g = round(sum(e.protein_g or 0 for e in log.entries), 2)
     log.total_carbs_g = round(sum(e.carbs_g or 0 for e in log.entries), 2)
     log.total_fat_g = round(sum(e.fat_g or 0 for e in log.entries), 2)
-    log.total_fiber_g = round(sum(e.fat_g or 0 for e in log.entries), 2)
     log.updated_at = datetime.utcnow()
     log.save()
 
@@ -207,7 +206,6 @@ def import_from_plan(user: User, log_date: date) -> DietLog:
 
 def monthly_report(user: User, year: int, month: int) -> dict:
     import calendar
-    from pymongo import MongoClient
 
     start = date(year, month, 1)
     end = date(year, month, calendar.monthrange(year, month)[1])
