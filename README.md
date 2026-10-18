@@ -70,7 +70,7 @@ Work through this checklist first — it is Phase 0 of your roadmap:
 ## Tools to Install
 
 ```bash
-# Node.js 20+ from nodejs.org
+# Node.js 24 LTS from nodejs.org (Angular 22 needs 22.22.3+, 24.15+ or 26+)
 # Python 3.11+ from python.org
 # Docker Desktop from docker.com
 # MongoDB Compass from mongodb.com/compass
