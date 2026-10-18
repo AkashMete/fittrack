@@ -21,17 +21,17 @@
 Set up your development environment and project management workflow before writing application code.
 
 ### Tasks
-- [ ] Create GitHub repo `fittrack` (public — it's your portfolio piece)
-- [ ] Create a `develop` branch — never commit directly to `main`
-- [ ] Set up GitHub Projects: Kanban with columns `Backlog → In Progress → In Review → Done`
-- [ ] Create GitHub Milestones matching each phase (Phase 1, Phase 2, etc.)
-- [ ] Convert all features from `PRODUCT_SPEC.md` into GitHub Issues (label + milestone each one)
-- [ ] Install all tools listed in README.md
-- [ ] Create MongoDB Atlas free account → create M0 cluster named `fittrack`
-- [ ] Create Vercel, Render.com, Cloudinary accounts (free tiers)
-- [ ] Write your first `docker-compose.yml` — just MongoDB and Redis containers
-- [ ] Verify: run `docker-compose up -d`, connect to it with MongoDB Compass
-- [ ] Commit all `docs/` to GitHub — this is the project's foundation
+- [x] Create GitHub repo `fittrack` (public — it's your portfolio piece)
+- [x] Create a `develop` branch — never commit directly to `main`
+- [x] Set up GitHub Projects: Kanban with columns `Backlog → In Progress → In Review → Done`
+- [x] Create GitHub Milestones matching each phase (Phase 1, Phase 2, etc.)
+- [x] Convert all features from `PRODUCT_SPEC.md` into GitHub Issues (label + milestone each one)
+- [x] Install all tools listed in README.md
+- [x] Create MongoDB Atlas free account → create M0 cluster named `fittrack`
+- [x] Create Vercel, Render.com, Cloudinary accounts (free tiers)
+- [x] Write your first `docker-compose.yml` — just MongoDB and Redis containers
+- [x] Verify: run `docker-compose up -d`, connect to it with MongoDB Compass
+- [x] Commit all `docs/` to GitHub — this is the project's foundation
 
 ### What to Research
 - Git branching strategies: Git Flow vs Trunk-Based Development
