@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+// Default Angular Material theme
+@include mat.theme((
+  color: (primary: mat.$azure-palette, tertiary: mat.$blue-palette),
+  density: 0
+));
+
+html, body { height: 100%; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Utility: full-width Material form field
+.w-full .mat-mdc-form-field { width: 100%; }
